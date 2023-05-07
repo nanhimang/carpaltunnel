@@ -24,6 +24,25 @@ let btp_back = document.querySelector('.pad.side'); //back to scroe
 let btp_reset = document.querySelectorAll('.pad.side')[1]; //reset
 //#endregion
 
+// .쿠키 불러오기
+function getCookie() {
+    try{
+        const value = '; ' + document.cookie;
+        const parts = value.split('; ' + encodeURIComponent("score") + '=');
+        if (parts.length === 2) {
+          return decodeURIComponent(parts.pop().split(';').shift());
+        }
+        else{return parts;}
+    }
+    catch(err) {
+        alert(err.message); 
+      }
+  }
+
+cp.innerText=getCookie();
+setTimeout(page_opening,1500);
+
+
 //  .종료 화면 
 //#region
 function color_setTimeout(ii){ //글자 반짝반짝
@@ -84,7 +103,6 @@ function page_back(){
     btp_reset.style="display:none";
     mn.style.transform="rotateY(0deg)";
 }
-    setTimeout(page_opening,1500);
     setTimeout(page_transition,1500);
 //#endregion
 
