@@ -30,13 +30,11 @@
    <!-- #endregion -->
 </head>
 <body>
-        <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js'
-        import {  getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"
-        import {  getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js'
-    </script>
-   <script type="text/javascript" src="CPS_랭킹화면_v1.4.js"></script>
+    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+    <script src='https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"></script>
+    <script src='https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js'></script>
+    <script src="CPS_랭킹화면_v1.4.js"></script>
     <div class="wrapper rank up">
             <p class = "rank" style="font-size:18px; color:#4D4D4D; ">
                 press upward to scroll top
