@@ -1,0 +1,71 @@
+<!doctype html>
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆
+    * 터치 속도 측정 게임
+
+◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+<!-- 개발 일지 
+    1. 참고문서
+        https://cookie.riimu.net/speed/
+
+    2. 기능
+        (1) 본게임
+        (2) 랭킹 등록 system
+       -->
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title> document </title>
+    <!-- _폰트 import --> 
+   <!-- #region  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CPS_result+이름입력_v1.4.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <body>
+    <div class="whole_wrapper">
+        <div class="wrapper up">
+            <div class="desc f">
+                <p class="marked" style="font-size:3rem">finished!</p>
+                <p style="display:none;" class="twinkle" >click score to enroll!</p>
+            </div>
+            <div class="desc s" style="display:none;">
+                <p class="marked" style="font-size:3rem">type your name</p>
+                <p class="hint" style="display:none;">press enter to regist</p>
+                <p class="hint" style="display:none;">name should be less than 10 words</p>
+                <p class="hint" style="display:none;">you typed nothing!</p>
+            </div>
+        </div>
+        <!-- . 중간화면 -->
+        <div class="wrapper mid">
+            <!-- :왼쪽 사이드 -->
+            <div class="sidebar">
+                <div class="pad side" style="display:none">back</div>
+            </div>
+            <!-- :중간 -->
+            <div class="main">  
+                <!-- _회색 원 -->
+                <div class="whole_pad">
+                    <div class="pad report"> <!-- 종료 화면 -->
+                            <span style="font-size:1.3rem;"><span id="cps" style="font-size:3rem; padding:0px; margin:0px;">12</span>cps</span>
+                    </div>
+                    <div class="pad input"> <!-- 이름 input -->
+                        <input class="name" id="name" type="text">
+                    </div>   
+                </div>
+            </div>
+            <!-- :오른쪽 사이드 -->
+            <div class="sidebar">
+                <div class="pad side"style="display:none">reset</div>
+            </div>
+        </div>
+        <div class="wrapper dn">
+            <span id="retry" class="material-symbols-outlined" style="font-size:4rem;">refresh</span>            
+        </div>
+</div>
+</body>
+<script src="CPS_result+이름입력_v1.4.js"></script>
+</html>

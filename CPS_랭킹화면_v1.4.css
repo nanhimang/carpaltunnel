@@ -1,0 +1,97 @@
+/* .기본화면  */
+/* #region */
+body {
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+.wrapper {
+    height: 20vh;
+    /* 화면 창 높이(view height)의 25% */
+    width: 100vw;
+    /* 화면 창 너비(view width)의 25% */
+}
+.wrapper.mid {
+    display: flex;
+    position:relative;
+    height: 60vh;
+    width: 100vw;
+}
+
+
+/*  .랭킹 화면 */
+
+.rank{
+    color:white;
+    text-align: center;
+    font-family: Verdana, sans-serif;
+    padding: 0px;
+    margin: 0px auto 0px auto;  
+}
+
+
+/* _상단 문구 */
+div.up{
+    display : flex;
+    flex-direction:column-reverse;
+}
+.up>.rank:last-child{
+    font-family: 'Audiowide', cursive;
+
+    font-weight: bold;
+}
+
+.up>.rank:first-child{
+    letter-spacing: 0.5px;
+    margin-bottom:36px;
+}
+
+/* _테이블 */
+.rank_table{
+    max-height:56vh;
+    overflow-y: scroll;
+
+}
+table.rank{
+    letter-spacing: 2px;
+    font-weight: bolder;
+    font-size:15px; 
+    width:70vw;
+    border-collapse: collapse;
+}
+th{
+    font-size: 18px;
+}
+th,td{
+    padding: 0;
+     height:6.5vh;
+     line-height: 6.5vh;
+     border-top: none;
+     border-left:none;
+     border-right:none;
+     border-bottom :0.5vh solid black;
+}
+th{
+    position:sticky;
+    top:0;
+    background-color: black;
+}
+tr{
+   background-color: #2b3035; 
+}
+
+tr:first-child{
+    position:fiexde;
+}
+
+/* _RETRY 버튼 */
+#retry2{
+    width : 70vw;
+    height : 20vh;
+    line-height: 20vh;
+    letter-spacing: 4px;
+    color: #343a40;
+    font-weight: bolder;
+    text-align:center;
+    font-family: 'Audiowide', cursive;
+
+}

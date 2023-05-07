@@ -1,0 +1,215 @@
+/* ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆
+    *timeline
+    0502 reportpad, width:28%, margn:0px 수정
+    
+◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ */
+
+/* .기본 화면  */
+/* #region */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    transition:all,1s;
+}
+.whole_wrapper{
+    transition:all,1s;
+}
+.wrapper {
+    height: 20vh;
+    /* 화면 창 높이(view height)의 25% */
+    width: 100vw;
+    /* 화면 창 너비(view width)의 25% */
+}
+.wrapper.mid {
+    display: flex;
+    height: 60vh;
+    width: 100vw;
+}
+.wrapper.up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* #endregion */
+  
+/*  .fin page */
+/* #region */
+/* :상단문구  */
+.desc{
+    font-family: 'Consolas', Courier, monospace;
+    text-align: center;
+    margin:0px; 
+    padding:0px;
+}
+.twinkle{
+    margin:0px; 
+    padding:0px;
+    color:gray;
+    font-size : 18px;  
+}
+p.marked{
+    font-weight: bold;  
+    color:#39a8f2;
+    text-shadow : 0px 0px 15px #39a8f2;
+    transition:all,1s;
+    margin:0px; 
+    padding:0px;
+    font-size:3rem;
+}
+.desc.f>.marked{
+    animation : shaking .1s 5;
+}
+.hint{    
+    font-family: 'Consolas', Courier, monospace;
+    margin:0px; 
+    color:lightgray;
+    font-size : 18px;  
+    padding: 5px 0px 0px 0px;
+    transition:all,1s;
+}
+.hint:last-child{
+    animation : shaking .1s 5;
+}
+@keyframes flipping{
+    from{
+        tranform:skew(5deg,5deg);
+    }
+    to
+    {
+        transform:skew(-5deg,-5deg);
+    }
+}
+@keyframes shaking{
+    from{
+        tranform:rotate(2deg);
+    }
+    to
+    {
+        transform:rotate(-3deg);
+    }
+}
+/* :사이드바 */
+.sidebar{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:36vw;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' 0,
+  'opsz' 100;
+}
+#arrow{
+    font-size:50px; 
+    font-weight:lighter; 
+    opacity:50%;
+}
+    /* :main */
+    .main{
+        position:relative;
+        width:28vw;
+        display: flex;
+        align-self:center;
+        justify-content: center;
+        transition: all 0.1s;
+    }
+        /* _동그라미 패드  */
+    .pad{
+        display: flex;
+        justify-content: center;
+        /* 자식개체를 수평으로 가운데 정렬(flex 모드에서만 가능) */
+        align-items: center;
+        /* 자식개체를 수직으로 가운데 정렬(flex 모드에서만 가능) */
+/*         min-width:185px;
+        max-width:350px; */
+        margin: auto;
+        border-radius: 100%;
+        transition: all 0.001s;
+        background-color: white;
+        box-shadow: 0px 0px 30px 10px white;
+        /* 개체로부터 0px 떨어져서 30px로 blur처리 및 10px의 크기로 그림자 설정 */
+    }
+    .pad {
+        width: 100%;
+        box-shadow: 0px 0px 30px 10px lightgray;
+    }
+    .pad::after {
+        content: "";
+        padding-bottom: 100%;
+    }
+    .pad{
+        cursor: pointer;
+        /* 커서를 포인터 모양으로 유지*/
+    }
+    
+            /* =결과 패드 */
+   .whole_pad{
+        position:relative;
+        width:100%;
+        height:28vw;
+        transition: all 0.1s;
+        transform-style: preserve-3d;
+        min-width:185px;
+        max-width:350px;
+    }
+
+    .pad.report{
+        position:absolute;
+        transition: all 0.5s;
+        backface-visibility : hidden;
+    }
+
+
+
+    /* :retry */
+    #retry{
+        position:relative;
+        font-size:3.5rem; 
+        color:lightgray;
+        width:100vw; 
+        text-align:center;
+    }  
+    #retry:hover{
+        color:gray;
+    }  
+
+/*  .메인 화면_input page */
+    .pad.side{
+        width:50%;
+        min-width: 120px;
+        box-shadow: 0px 0px 20px 10px #f6f8fa;
+    }
+
+    .pad.side:hover{
+        width:55%;
+        font-size: 1.2em;
+        font-weight: bold;
+        letter-spacing: -0.5px;
+    }
+
+   
+    /* _동그라미_이름입력 */
+    .pad.input {
+        position:absolute;
+        background-color: lightgray;
+        box-shadow: 0px 0px 30px 10px lightgray; /* 개체로부터 0px 떨어져서 30px로 blur처리 및 10px의 크기로 그림자 설정 */
+        transform:rotateY(180deg);
+        backface-visibility: hidden;
+    }
+
+        /* =입력창 */
+    .name{
+        appearance: none;
+        border : none;
+        border-bottom : 1px solid white;
+        background-color:transparent;
+        margin:auto;
+        font-size: 2em;
+        font-weight:lighter;
+        color : white;
+        text-align: center;
+        width : 70%;
+    }
+/* #endregion */   

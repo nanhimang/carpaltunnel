@@ -1,0 +1,235 @@
+/* .기본화면  */
+/* #region */
+body {
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+.wrapper {
+    height: 20vh;
+    /* 화면 창 높이(view height)의 25% */
+    width: 100vw;
+    /* 화면 창 너비(view width)의 25% */
+}
+.wrapper.mid {
+    display: flex;
+    height: 60vh;
+    width: 100vw;
+}
+
+
+/* #endregion */
+
+/*  .최초화면 */
+/* #region */
+/*  !hid event를 위해 line-height로 중앙정렬 */
+
+/* 
+    .title, .rank{
+    position:absolute;
+    z-index:-1;
+    color:white;
+    font-family: 'Audiowide', cursive;
+    font-style:italic;
+    font-size:5rem;
+    font-weight: bold;
+    width:100%;
+    text-align: center;
+    transition: all, 0.5s;
+}
+ */
+
+ .title, .rank{
+    color:white;
+    font-family: 'Audiowide', cursive;
+    text-align: center;
+}
+
+.title{
+    position:absolute;
+    z-index:-1;
+    font-style:italic;
+    font-size:5rem;
+    font-weight: bold;
+    width:100%;
+    transition: all, 0.5s;
+}
+
+
+
+p.curtain {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 20vh;
+    margin:0px;
+}
+/* #endregion */    
+
+/*  .게임화면 */
+/*  :파란색 바 */
+/* #region */        
+    .bar{ 
+        position:absolute; margin:0px; padding:0px;
+        background-color: #39a8f2;
+        box-shadow: 0px 0px 50px 10px #39a8f2;
+        transition:all 2.5s; /* 시간 설정 */
+        transition-timing-function: linear;
+        opacity:0.7;
+    }
+    .bar.a{ top:0px; left:0px; width:0px; height:15px;}
+    .bar.b{ top:0px; right:0px; width:15px; height:0px;}
+    .bar.c{ bottom:0px; right:0px; width:0px; height:15px;}
+    .bar.d{ bottom:0px; left:0px; width:15px; height:0px;}
+/* #endregion */        
+
+/*  :동그라미 */
+/*  #region */
+    /* _디자인  */
+    .pad{
+        display: flex;
+        justify-content: center;
+        /* 자식개체를 수평으로 가운데 정렬(flex 모드에서만 가능) */
+        align-items: center;
+        /* 자식개체를 수직으로 가운데 정렬(flex 모드에서만 가능) */
+        min-width:185px;
+        max-width:350px;
+        margin: auto;
+        border-radius: 100%;
+        transition: all 0.001s;
+        background-color: white;
+        box-shadow: 0px 0px 30px 10px white;
+        /* 개체로부터 0px 떨어져서 30px로 blur처리 및 10px의 크기로 그림자 설정 */
+    }
+    .pad{
+        width: 28%;
+    }
+    .pad::after {
+        content: "";
+        padding-bottom: 100%;
+    }
+    
+    /* _Event  */
+    .pad.touch{
+        transition: all 0.1s;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        cursor: pointer;
+        /* 커서를 포인터 모양으로 유지*/
+    }
+    .pad.touch:hover {
+        font-weight: 900;
+    }
+    .pad.touch>p {
+        display: inline-block;
+        font-size: 3rem;
+        transition: all 0.1s; /* 모든 transform을 실행하되, 1초안에 */
+        margin:0px;
+    }
+    .pad.touch>p::selection {
+        background-color: transparent; /* dbclick시 파란색상 없애기 */
+    }
+/*  #endregion  */
+
+/* .게임END 이벤트 */
+.title.end{
+    z-index: 100;
+    text-shadow : 5px 5px 10px gray;
+}
+
+
+/*  .종료 화면 */
+/* #region */
+/* :finished! 문구  */
+   .desc{
+        padding-top:12vh;
+        text-align: center;
+        color:#39a8f2;
+        font-weight: bold;
+    }
+    .desc p{
+        margin:0px; 
+        padding:0px;
+    }
+    .marked{
+        text-shadow : 0px -10px 15px #39a8f2;
+        transition:all,1s;
+        margin:0px; 
+        padding:0px;
+        font-size:3rem;
+    }
+
+/* :동그라미  */
+    .pad.report{
+        position:relative;
+        transition: all 0.5s;
+        backface-visibility : hidden;
+    }
+/* :동그라미_문구 */
+    .pad>ul {
+        position:absolute;
+        width:100%; 
+        list-style:none;
+        padding:0px;
+        text-align: center;
+    }
+    .pad>li{
+        position:absolute; 
+        list-style:none; 
+        top:15; 
+        width:100%; 
+        text-align:center; 
+        font-size:1rem;
+        letter-spacing: -0.05rem;
+    }
+
+/* :동그라미_retry */
+    #retry{
+        position:absolute;
+        bottom: 13vh;
+        font-size:3.5rem; 
+        color:lightgray;
+        width:100vw; 
+        text-align:center;
+    }  
+
+    #retry:hover{
+        color:gray;
+    }  
+
+/* #endregion */   
+
+
+/*  .랭킹 화면 */
+.rank{
+    padding: 0px;
+    margin: 0px auto 0px auto;    
+}
+
+
+/* _상단 문구 */
+.wrapper.rank{
+    display : flex;
+    flex-direction:column-reverse;
+}
+
+/* _테이블 */
+table.rank{
+    font-size:1.5rem; 
+    width:70vw;
+}
+th{
+    border-bottom : 1px solid white;
+}
+th,td{
+     padding-top:0.5rem;
+     padding-bottom:0.5rem;
+}
+
+/* _RETRY 버튼 */
+#retry2.rank{
+    width : 70%;
+    margin-bottom: 1.5rem;
+    color:#7d7d7d; 
+    text-align:center;
+}
