@@ -44,7 +44,7 @@ ctn.addEventListener('mousedown', function () {
     // _게임종료 이벤트
     setTimeout(function gameover() {
         cps=count/10; //클릭시 count
-
+        setCookie(cps);
         bg.style.transition="all 1s"; //10초 뒤 게임 종료되면 시간바 사라지고 배경 밝아짐
         bg.style.backgroundColor="white";
         ba.style.width="0%";
@@ -53,6 +53,9 @@ ctn.addEventListener('mousedown', function () {
         bd.style.height="0%";
 
         // title 중앙에 표시
+        tpd.removeEventListener('mousedown', expand_pad);
+        tpd.removeEventListener('mouseup', reset_pad);
+
         tpd.style.transition = "all 1s";
         tpd.style.transform = "rotateY(180deg)";
         ttl_e.style.display="inline-block";
@@ -63,40 +66,9 @@ ctn.addEventListener('mousedown', function () {
             setTimeout(function loading(){
                 location.href="CPS_result+이름입력_v1.4.html";
             },2000)
-
-
         },2000)
+    }, 10000);
 
-        // pad 뒤집어버리기
-        // title fadeout
-        
-
-     /*    dsc.style.display="block"; //10초 뒤 게임 종료되면 결과화면 표출
-        dsc_mk.style.textShadow="5px 5px 30px #39a8f2";
-        tpd.style.display="none";
-        rp.style.display="flex";
-        rtr.style.display="inline-block";
-        setTimeout(function rankmention(){ // 반짝반짝
-            dsc_p.style.display="block";
-            var i=0;
-            while(i<10){
-                color_setTimeout(i);
-                i++;            
-            }
-
-            rp.addEventListener('mouseover',function(){ 
-                rp.style.transform="rotateY(80deg)";
-                rp.addEventListener('mousedown',function(){
-                    rp.style.transform="rotateY(180deg)";
-                });
-            });
-            rp.addEventListener('mouseout',function(){
-                rp.style.transform="rotateY(0deg)";
-            });
-        },3000) */
-        }, 10000);
-/*         rp.style.boxShadow="0px 0px 30px 10px lightgray";
- */
     //  _Counter 이벤트
     ba.style.width="100%"; //게임 시작되면 시간바 event
     setTimeout(function(){
@@ -111,22 +83,33 @@ ctn.addEventListener('mousedown', function () {
     })
 //#endregion
 
+
+    // _쿠키 저장
+    function setCookie(value) {
+        var score = cps;
+        var score_cookie = encodeURIComponent("score") + '=' + encodeURIComponent(score);
+        document.cookie = score_cookie;
+      }
+      
 //  .게임화면 
 //  _마우스 누를 때 event 
-//#region        
-tpd.addEventListener('mousedown', function () { //카운트 및 글자 강조
+//#region    
+function expand_pad(){
     count += 1;
     nm.innerText = count
     nm.style.color = "red";
     nm.style.fontSize = "5rem";
     tpd.style.width = "25%";
-})
+}
+tpd.addEventListener('mousedown', expand_pad); //카운트 및 글자 강조
+
 //  _뗄 때 event
-tpd.addEventListener('mouseup', function () {
+function reset_pad(){
     nm.style.color = "black";
     nm.style.fontSize = "3rem";
-    tpd.style.width = "27%";
-})
+    tpd.style.width = "27%";    
+}
+tpd.addEventListener('mouseup', reset_pad);
 //#endregion
 
 /* //  .종료 화면     
