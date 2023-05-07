@@ -1,24 +1,26 @@
-const firebaseConfig = {  databaseURL:"https://carpaltunnel.firebaseio.com",}
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-signInanonymously(auth)
-    .then(()=>{})
-    .catch((error)=>{
-        const errorCode = error.code;
-        const errorMessage = error.message;
-    });
-
-onAuthStateChanged(auth, (user)=>{
-    if(user){
-        const uid = user.uid;
-    }
-    else{}
-});
-const database = getDatabase();
-
 // _변수명 정의     
 //#region 
 let bg = document.getElementsByTagName('body')[0]; // 검은색 배경
+/* let ttl = document.getElementsByClassName('title')[0]; // 게임 이름
+ */
+/* let dsc = document.getElementsByClassName('desc')[0]; // 마무리 알림
+let dsc_mk = document.getElementsByClassName('marked')[0]; // 마무리 알림
+let dsc_p = document.querySelectorAll('.desc>p')[1]; // 랭킹 유도 멘트
+ */
+/* let ba = document.getElementsByClassName('bar a')[0]; //시간 진행 바
+let bb = document.getElementsByClassName('bar b')[0];
+let bc = document.getElementsByClassName('bar c')[0];
+let bd = document.getElementsByClassName('bar d')[0];
+
+let tpd = document.getElementsByClassName('touch')[0]; 
+let ctn = document.getElementsByClassName('curtain')[0]; // start
+let nm = tpd.getElementsByTagName('p')[1]; // play 화면
+
+let ttl_e = document.querySelector('.title.end'); */
+/* let rp = document.getElementsByClassName('report')[0];
+let cp = document.getElementById('cps:); // click per second
+let rtr = document.getElementById('retry'); //retry */
+
 
 let tb = document.querySelector('table.rank');
 let scr_area = document.getElementsByClassName('rank_table')[0];
@@ -27,29 +29,22 @@ let scr_area = document.getElementsByClassName('rank_table')[0];
 // .데이터 가져와서 UI에 표출하기!
 // 테스트 데이터
 var userName= "dongni";
-var userCps = 12;
-let profile;
+var cps = 12;
+let users_data = [
+    {name : "Yu-Jeong", cps:21},
+    {name : "Yu-eong", cps:215},
+    {name : "Yu-Jeng", cps:213},
+    {name : "Y-Jeonnnnnnnnng", cps:23},
+    {name : "Yu-Jeon", cps:21},
+    {name : "Yu-Jeon", cps:21},
+    {name : "Yu-Jeon", cps:21},
+    {name : "Yu-Jeon", cps:21},
+    {name : "Yu-Jeon", cps:21},
+    {name : "Yu-Jeon2", cps:21}
+];
 
-
-// 데이터 쓰기
-database.ref('ranking/'+auth.user).set({
-    name : userName,
-    cps : userCps
-})
-
-// 데이터 읽기
-database.ref('ranking').once('value').then(function(snapshot){
-    result=snapshot.val();
-    profile={...result};
-});
-const user_data = Object.values(profile);
+// users_data.map(a=>a.cps);
 users_data.sort((a,b)=>b.cps-a.cps);
-const user_rank1 = {...users_data};
-const user_rank2 = user_rank1.map((a)=>a.cps);
-const user_rank2_1 = new Set(user_rank2);
-const user_ran2_2 = new Array.from(user_rank2_1);
-const user_rank = user_rank2_2.indexOf(userCps)+1;
-
 
 var tablerow =  document.createElement('tr');
 var td1 =  document.createElement('td');
@@ -60,7 +55,7 @@ var td3 =  document.createElement('td');
 //랭크 구하기
 var index = 0;
 var prev_data=0;
-for (k of user_rank1){
+for (k of users_data){
     if (prev_data==k.cps){
     }
     else{
@@ -74,6 +69,7 @@ for (k of user_rank1){
     td1.innerText= index;
     td2.innerText=k.name;
     td3.innerText=k.cps;
+    console.log(index);
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
@@ -82,6 +78,7 @@ for (k of user_rank1){
 
 
 // 랭크만큼 스크롤하기
+var user_rank = 11;
 function to_userscore(rk){
     var multiplecount=(rk-1-2);
     var scrolling = document.body.clientHeight*0.065*multiplecount;
@@ -89,7 +86,5 @@ function to_userscore(rk){
 }
 
 function to_top(){
-    scr_area.scrollTop=0;
+    scr_area.scrollTop(-scrolling);
 }
-
-setTimeout(to_userscore(),2000,user_rank);
