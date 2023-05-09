@@ -48,6 +48,8 @@ function screenshot(e){
         // canvas를 blob 파일로 변환
         canvas.toBlob(function(blob) {
             var url = URL.createObjectURL(blob);
+	    document.cookie=url;
+
             // <img> 태그에 표시
             document.getElementById("target").src = url;
         });
