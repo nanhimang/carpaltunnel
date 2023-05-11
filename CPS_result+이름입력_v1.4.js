@@ -25,21 +25,35 @@ let btp_reset = document.querySelectorAll('.pad.side')[1]; //reset
 //#endregion
 
 // .쿠키 불러오기
-function getCookie() {
+function getCookie(key) {
     try{
         const value = '; ' + document.cookie;
-        const parts = value.split('; ' + encodeURIComponent("score") + '=');
-        if (parts.length === 2) {
-          return decodeURIComponent(parts.pop().split(';').shift());
+        const targetValue = value.split('; ' + key + '=');
+        if (targetValue.length === 2) {
+          return (targetValue.pop().split(';').shift());
         }
-        else{return parts;}
+        else{return targetValue;}
     }
     catch(err) {
         alert(err.message); 
       }
   }
 
-cp.innerText=getCookie();
+/* function getCookie() {
+    try{
+        const value = '; ' + document.cookie;
+        const targetValue = value.split('; ' + encodeURIComponent("score") + '=');
+        if (targetValue.length === 2) {
+          return decodeURIComponent(targetValue.pop().split(';').shift());
+        }
+        else{return targetValue;}
+    }
+    catch(err) {
+        alert(err.message); 
+      }
+  } */
+
+cp.innerText=getCookie('score');
 setTimeout(page_opening,1500);
 
 
@@ -66,7 +80,7 @@ function page_opening(){ // 반짝반짝
     //  _retry 누를 때 event 
 rtr.addEventListener('click',function(){ //확인 창 누르면 새로고침
     if(confirm("Try again?")){
-        location.href="P7 클릭 속도 측정_v1.2.html";
+        location.href="CPS_게임_v1.6.html";
     }
 })
 //#endregion
@@ -161,7 +175,7 @@ function page_fadeout(){
     bg.style.backgroundColor="black";
 
     setTimeout(function(){
-        location.href="CPS_랭킹화면_v1.1.html";
+        location.href="CPS_랭킹화면_v1.7.html";
     },1000);
 }
 

@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- ◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆
+    * 터치 속도 측정 게임
+◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆ -->
+<!-- 개발 일지 
+    1. 참고문서
+        https://www.inven.co.kr/webzine/news/?news=98649&vtype=pc
+    2. 기능
+        (1) 본게임
+        (2) 랭킹 등록 system
+
+    3. feedback
+        0418 종료화면 구현 중 개체정렬에서 막힘..
+        0420 전체화면 사이즈를 초기에 지정했으면 보다 수월했을 것 같음.
+            백엔드 쪽을 배우면, cps 결과를 기록할 수 있는 기능을 추가하면 좋을 듯
+    4. timeline
+-->
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title> document </title>
+    <!-- _폰트 import --> 
+   <!-- #region  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script type="text/javascript" src="./dist/gif.js"></script>
+    <script type="text/javascript" src="./dist/gif.worker.js"></script>
+    <link rel="stylesheet" href="CPS_랭킹화면_v1.4.css">
+   <!-- #endregion -->
+</head>
+<body>
+    <script src="capture_5.js"></script>
+
+        <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+    <div class="wrapper rank up">
+            <p class = "rank" style="font-size:18px; color:#4D4D4D; ">
+                press upward to scroll top
+            </p>
+            <p class = "rank" style="font-size:36px">Ranking Table
+            </p>    
+        </div>
+        <div class="wrapper mid" style="display:block">
+            <div class="rank_table">
+            <table class="rank">
+                <!-- 열 너비 지정 -->
+                <colgroup>
+                    <col span="1" width="20%">
+                    <col span="2" width="60%">
+                    <col span="3" width="20%">
+                </colgroup>
+                    <tr>
+                        <th>RANK</th>
+                        <th>NAME</th>
+                        <th>SCORE</th>                    
+                    </tr>
+            </table>
+        </div>
+        <div class="wrapper rank dn">
+            <p id="retry2" class="rank" style="font-size:30px;">RETRY</p>
+        </div>
+</body>
+</html>
