@@ -63,7 +63,7 @@ window.onload = function(){
                     console.log("Making cookie!");
                     BlobURLArray.forEach((BlobURL)=>{
                                                         var text = String(BlobURL);
-                                                        var new_text = text.replace("blob:http://127.0.0.1:3000/","");
+                                                        var new_text = text.replace("blob:https://nanhimang.github.io/","");
                                                         BlobURLArray_copy.push(new_text);
                     });
                     if (BlobURLArray_copy.length==100){
