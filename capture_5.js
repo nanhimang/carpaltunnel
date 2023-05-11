@@ -51,7 +51,7 @@
           var cookieArray=CookieText.split(",");
           var result = [];
           cookieArray.forEach((a)=>{
-            result.push("blob:http://127.0.0.1:3000/"+a);
+            result.push("https://nanhimang.github.io/"+a);
           })
           return result
         }
