@@ -34,15 +34,19 @@ ctn.addEventListener('mousedown', function () {
     ctn.style.display = "none";//해당 tag hid
     nm.style.display = "inline-block";//해당 tag hid
 // :게임화면 
-    tpd.addEventListener('click', function () {
+    tpd.addEventListener('click', brighten)
+    function brighten(){        
         op -= 0.01;
         bg.style.backgroundColor = "rgba(0,0,0," + op + ")";
-    })
+    }
 //  !performance로 소요시간을 계산하는 방식 대신에 setTimeout 함수를 활용하자! 
 //  !굳이 즉시 실행 함수를 만들어 줄 필요없음! 
 
     // _게임종료 이벤트
     setTimeout(function gameover() {
+        tpd.removeEventListener('click', brighten);
+        tpd.removeEventListener('mousedown', expand_pad);
+        tpd.removeEventListener('mouseup', reset_pad);
         cps=count/10; //클릭시 count
         setCookie(cps);
         bg.style.transition="all 1s"; //10초 뒤 게임 종료되면 시간바 사라지고 배경 밝아짐
@@ -53,8 +57,6 @@ ctn.addEventListener('mousedown', function () {
         bd.style.height="0%";
 
         // title 중앙에 표시
-        tpd.removeEventListener('mousedown', expand_pad);
-        tpd.removeEventListener('mouseup', reset_pad);
 
         tpd.style.transition = "all 1s";
         tpd.style.transform = "rotateY(180deg)";
@@ -63,9 +65,7 @@ ctn.addEventListener('mousedown', function () {
         setTimeout(function fadeoff(){
             ttl_e.style.transition="all 1s";
             ttl_e.style.opacity="0%";
-            setTimeout(function loading(){
-                location.href="CPS_result+이름입력_v1.4.html";
-            },2000)
+
         },2000)
     }, 10000);
 
@@ -86,8 +86,8 @@ ctn.addEventListener('mousedown', function () {
 
     // _쿠키 저장
     function setCookie(value) {
-        var score = cps;
-        var score_cookie = encodeURIComponent("score") + '=' + encodeURIComponent(score);
+        var score = value;
+        var score_cookie = "score=" + encodeURIComponent(score);
         document.cookie = score_cookie;
       }
       
@@ -99,7 +99,7 @@ function expand_pad(){
     nm.innerText = count
     nm.style.color = "red";
     nm.style.fontSize = "5rem";
-    tpd.style.width = "25%";
+    tpd.style.width = "18%";
 }
 tpd.addEventListener('mousedown', expand_pad); //카운트 및 글자 강조
 
@@ -107,7 +107,7 @@ tpd.addEventListener('mousedown', expand_pad); //카운트 및 글자 강조
 function reset_pad(){
     nm.style.color = "black";
     nm.style.fontSize = "3rem";
-    tpd.style.width = "27%";    
+    tpd.style.width = "20%";    
 }
 tpd.addEventListener('mouseup', reset_pad);
 //#endregion
