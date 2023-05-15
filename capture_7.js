@@ -79,7 +79,7 @@ function gifRandering(canvasArray){
         localStorage.setItem('gif', dataURL);
         console.log(dataURL);
         setTimeout(()=>{
-          location.href = "CPS_result+이름입력_v1.4.html"
+          location.href = "CPS_result+이름입력_v1.5.html"
         },1000);
       }
       reader.readAsDataURL(blob);
