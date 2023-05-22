@@ -34,6 +34,11 @@ ctn.addEventListener('mousedown', function () {
     ctn.style.display = "none";//해당 tag hid
     nm.style.display = "inline-block";//해당 tag hid
 // :게임화면 
+    var S=new Date;
+    timming= setInterval(()=>{
+      var numb = document.getElementById('counting');
+      numb.innerHTML='00:00:'+String(((new Date-S)/1e3).toFixed(3)).padStart(6,'0');    
+    });
     tpd.addEventListener('click', brighten)
     function brighten(){        
         op -= 0.01;
@@ -44,6 +49,7 @@ ctn.addEventListener('mousedown', function () {
 
     // _게임종료 이벤트
     setTimeout(function gameover() {
+        clearInterval(timming);
         tpd.removeEventListener('click', brighten);
         tpd.removeEventListener('mousedown', expand_pad);
         tpd.removeEventListener('mouseup', reset_pad);
@@ -65,7 +71,7 @@ ctn.addEventListener('mousedown', function () {
         setTimeout(function fadeoff(){
             ttl_e.style.transition="all 1s";
             ttl_e.style.opacity="0%";
-
+          location.href = "CPS_result+이름입력_v1.5.html";
         },2000)
     }, 10000);
 
