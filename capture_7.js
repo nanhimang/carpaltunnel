@@ -2,7 +2,6 @@ window.onload = function(){
 	// 캡쳐 버튼 클릭 이벤트 등록
 	document.getElementsByClassName("touch")[0].addEventListener("click", executing);
 }
-
 //.전체 함수 실행
 function executing(e){
     document.getElementsByClassName("touch")[0].removeEventListener("click", executing);
