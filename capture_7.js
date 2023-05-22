@@ -6,11 +6,6 @@ window.onload = function(){
 //.전체 함수 실행
 function executing(e){
     document.getElementsByClassName("touch")[0].removeEventListener("click", executing);
-    var S=new Date;
-    timming= setInterval(()=>{
-      var numb = document.getElementById('counting');
-      numb.innerHTML='00:00:'+String(((new Date-S)/1e3).toFixed(3)).padStart(6,'0');    
-    });
     screenshot(e);
 }
 
@@ -27,7 +22,6 @@ function executing(e){
                     console.log("executed count :"+count);
                     if (count == 50){
                         if (canvasArray.length == 50){
-                            clearInterval(interval);
                             console.log("clear interval!", canvasArray);
                             gifRandering(canvasArray);
                         }
@@ -78,9 +72,6 @@ function gifRandering(canvasArray){
         const dataURL = reader.result;
         localStorage.setItem('gif', dataURL);
         console.log(dataURL);
-        setTimeout(()=>{
-          location.href = "CPS_result+이름입력_v1.5.html"
-        },1000);
       }
       reader.readAsDataURL(blob);
   }, 'image/gif',0.5)
