@@ -80,7 +80,7 @@ function gifRandering(canvasArray){
         console.log(dataURL);
         setTimeout(()=>{
           location.href = "CPS_result+이름입력_v1.5.html"
-        },1500);
+        },1000);
       }
       reader.readAsDataURL(blob);
   }, 'image/gif',0.5)
