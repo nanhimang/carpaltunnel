@@ -25,8 +25,8 @@ function executing(e){
                      var cWd = canvas.width;
                      var cHgt = canvas.height;
                     console.log("executed count :"+count);
-                    if (count == 100){
-                        if (canvasArray.length == 100){
+                    if (count == 50){
+                        if (canvasArray.length == 50){
                             clearInterval(interval);
                             console.log("clear interval!", canvasArray);
                             gifRandering(canvasArray);
@@ -60,7 +60,7 @@ function executing(e){
 //.스크린 캡쳐 GIF 랜더링
 function gifRandering(canvasArray){
   clearInterval(timming);
-  if (canvasArray.length==100){
+  if (canvasArray.length==50){
     var gif = new GIF({
       workers: 2,
       quality: 10
@@ -80,7 +80,7 @@ function gifRandering(canvasArray){
         console.log(dataURL);
         setTimeout(()=>{
           location.href = "CPS_result+이름입력_v1.5.html"
-        },1000);
+        },1500);
       }
       reader.readAsDataURL(blob);
   }, 'image/gif',0.5)
