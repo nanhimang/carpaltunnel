@@ -22,6 +22,7 @@ function executing(e){
                     console.log("executed count :"+count);
                     if (count == 50){
                         if (canvasArray.length == 50){
+			    clearInterval(interval);
                             console.log("clear interval!", canvasArray);
                             gifRandering(canvasArray);
                         }
@@ -53,7 +54,6 @@ function executing(e){
 
 //.스크린 캡쳐 GIF 랜더링
 function gifRandering(canvasArray){
-  clearInterval(timming);
   if (canvasArray.length==50){
     var gif = new GIF({
       workers: 2,
