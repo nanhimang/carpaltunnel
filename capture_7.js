@@ -8,7 +8,6 @@ function executing(e){
     screenshot(e);
 }
 
-
 //.스크린 캡쳐 실행
     function screenshot(e){
         var canvasArray = [];
