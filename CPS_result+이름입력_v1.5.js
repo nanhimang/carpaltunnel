@@ -33,6 +33,7 @@ function copyToClipboard() {
 
 //.로컬 데이터 불러오기
 function displaying(){
+    window.alert("Highlights downloaded!");
     var blobDataURL = localStorage.getItem('gif');
     var el = document.getElementById("target");
       el.href= blobDataURL;
